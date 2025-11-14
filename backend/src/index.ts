@@ -8,9 +8,10 @@ import User from './models/User';
 import mongoose = require('mongoose');
 import { signupSchema,loginSchema } from './validations/authValidation';
 dotenv.config();
+console.log("Mongo URI:", process.env.MONGO_URI);
 const app = express();
 app.use(cors());
-const port = 5000;
+const port = 5000; 
 const JWT_SECRET = process.env.JWT_SECRET || "secretkey";
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 const connectDB = async () => {
   try {
   await mongoose
-  .connect("mongodb://127.0.0.1:27017/role_auth_db")
+  .connect(process.env.MONGO_URI || "")
   console.log("✅ Connected to MongoDB")
     } catch (error) { 
     console.error("❌ MongoDB connection error:", error);
