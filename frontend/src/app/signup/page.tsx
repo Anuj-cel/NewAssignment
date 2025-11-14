@@ -21,7 +21,7 @@ export default function SignupPage() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/auth/signup",
+        "https://backened-internshala-auth.onrender.com/auth/signup",
         form,
         { headers: { "Content-Type": "application/json" } }
       );

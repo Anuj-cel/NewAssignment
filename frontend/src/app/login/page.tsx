@@ -28,7 +28,7 @@ export default function LoginPage() {
     try {
       
       const res = await axios.post(
-        "http://localhost:5000/auth/login",
+        "https://backened-internshala-auth.onrender.com/auth/login",
         form,
         {
           headers: { "Content-Type": "application/json" },
@@ -45,7 +45,7 @@ export default function LoginPage() {
       localStorage.setItem("token", token);
       
       
-      const me = await axios.get("http://localhost:5000/auth/me", {
+      const me = await axios.get("https://backened-internshala-auth.onrender.com/auth/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       

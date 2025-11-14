@@ -6,7 +6,7 @@ export const getCurrentUser = async () => {
   if (!token) return null;
 
   try {
-    const res = await axios.get("http://localhost:5000/auth/me", {
+    const res = await axios.get("https://backened-internshala-auth.onrender.com/auth/me", {
       headers: { Authorization: `Bearer ${token}` },
     });
     return res.data; 
